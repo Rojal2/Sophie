@@ -21,26 +21,19 @@
                         aiming for Bachelors, Masters, and beyond.</p>
 
                     <div class="row mt-4">
-                        <div class="col-md-6 mb-3">
-                            <div class="d-flex align-items-start">
-                                <i class="fas fa-bullseye text-primary mt-1 me-3"></i>
-                                <div>
-                                    <h6 class="fw-bold">Objective</h6>
-                                    <p class="small text-muted">To coordinate with universities & schools to send
-                                        students for quality studies.</p>
+                        @foreach($teams as $team)
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-start">
+                                    <img src="{{ asset('storage/' . $team->image) }}" alt="{{ $team->name }}"
+                                        class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                                    <div>
+                                        <h6 class="fw-bold">{{ $team->name }}</h6>
+                                        <p class="small text-primary mb-1">{{ $team->role }}</p>
+                                        <p class="small text-muted mb-0">{{ Str::limit($team->bio, 50) }}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <div class="d-flex align-items-start">
-                                <i class="fas fa-handshake text-primary mt-1 me-3"></i>
-                                <div>
-                                    <h6 class="fw-bold">Commitment</h6>
-                                    <p class="small text-muted">To provide ethical career counseling and visa
-                                        preparation services.</p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

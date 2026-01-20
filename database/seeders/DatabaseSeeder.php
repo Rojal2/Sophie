@@ -21,6 +21,9 @@ class DatabaseSeeder extends Seeder
             DestinationSeeder::class,
             ServiceSeeder::class,
             SettingSeeder::class,
+            CourseSeeder::class,
+            TeamSeeder::class,
+            BannerSeeder::class,
 
 
         ]);

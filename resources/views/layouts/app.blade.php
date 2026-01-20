@@ -97,9 +97,11 @@
                 <div class="col-md-3 mb-4">
                     <h5>Contact</h5>
                     <ul class="list-unstyled small text-secondary mb-3">
-                        <li><i class="fas fa-map-marker-alt me-2"></i> Maharajgunj-3, Kathmandu</li>
-                        <li><i class="fas fa-phone me-2"></i> +977-9843719770</li>
-                        <li><i class="fas fa-envelope me-2"></i> info@sophie.com.np</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i>
+                            {{ $settings['site_address'] ?? 'Maharajgunj-3, Kathmandu' }}</li>
+                        <li><i class="fas fa-phone me-2"></i> {{ $settings['site_phone'] ?? '+977-9843719770' }}</li>
+                        <li><i class="fas fa-envelope me-2"></i> {{ $settings['site_email'] ?? 'info@sophie.com.np' }}
+                        </li>
                     </ul>
 
                     <h6 class="text-white mb-2">Chat with us:</h6>
