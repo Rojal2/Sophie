@@ -37,8 +37,8 @@
         <div class="row">
             <!-- Sidebar -->
             <div class="col-md-3 col-lg-2 px-0 sidebar">
-                <div class="p-3 fw-bold fs-5 border-bottom border-secondary">
-                    Sophie Admin
+                <div class="p-3 border-bottom border-secondary text-center">
+                    <img src="{{ asset('images/logo.png') }}" alt="Sophie Admin" height="60" class="img-fluid">
                 </div>
                 <div class="py-3">
                     <a href="{{ route('admin.dashboard') }}"
@@ -75,6 +75,13 @@
                     <a href="{{ route('home') }}" target="_blank" class="mt-5 border-top border-secondary pt-3">
                         <i class="fas fa-external-link-alt me-2"></i> Visit Site
                     </a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); this.closest('form').submit();">
+                            <i class="fas fa-sign-out-alt me-2"></i> Logout
+                        </a>
+                    </form>
                 </div>
             </div>
 

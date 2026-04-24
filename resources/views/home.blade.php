@@ -2,18 +2,7 @@
 
 @section('content')
     <!-- Hero -->
-    <header class="hero-section">
-        <div class="container">
-            <h1 class="hero-title">{{ $banner->title ?? 'Sophie International Education Pvt. Ltd.' }}</h1>
-            <p class="hero-subtitle">{{ $banner->subtitle ?? 'Your Gateway to Global Education.' }}</p>
-            <div class="d-flex justify-content-center gap-3">
-                <a href="{{ $banner->link ?? route('consultation') }}"
-                    class="btn btn-light btn-lg text-primary fw-bold">{{ $banner->button_text ?? 'Book Free Counseling' }}</a>
-                <a href="{{ route('test-prep') }}" class="btn btn-outline-light btn-lg">Explore Courses</a>
-            </div>
-        </div>
-    </header>
-
+    @include('components.homepage.hero-section')
     <!-- Quick Facts -->
     <section class="py-5 bg-white border-bottom">
         <div class="container">
@@ -57,38 +46,23 @@
                 <div class="bg-primary mx-auto" style="width: 60px; height: 3px;"></div>
             </div>
             <div class="row g-4">
-                <div class="col-md-3 col-sm-6">
-                    <div class="feature-card text-center">
-                        <div class="icon-box"><i class="fas fa-user-graduate"></i></div>
-                        <h5 class="fw-bold">Educational Consultancy</h5>
-                        <p class="text-muted small">Expert advice for domestic and foreign educational institutions.
-                        </p>
+                @foreach ($services as $service)
+                    <div class="col-md-3 col-sm-6">
+                        <div class="feature-card text-center">
+                            <div class="icon-box"><i class="fas fa-user-graduate"></i></div>
+                            <h5 class="fw-bold">{{$service->title}}</h5>
+                            <p class="text-muted small">{{$service->description}}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="feature-card text-center">
-                        <div class="icon-box"><i class="fas fa-language"></i></div>
-                        <h5 class="fw-bold">Language Training</h5>
-                        <p class="text-muted small">Classes in Japanese, Chinese, Korean, French, German & English.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="feature-card text-center">
-                        <div class="icon-box"><i class="fas fa-file-alt"></i></div>
-                        <h5 class="fw-bold">Test Preparation</h5>
-                        <p class="text-muted small">Intensive coaching for TOEFL, IELTS, SAT, GRE, and GMAT.</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="feature-card text-center">
-                        <div class="icon-box"><i class="fas fa-passport"></i></div>
-                        <h5 class="fw-bold">Visa Preparation</h5>
-                        <p class="text-muted small">Dedicated classes and guidance for visa interviews and
-                            documentation.</p>
-                    </div>
-                </div>
+                @endforeach
+
+
             </div>
+            <div class="text-center mt-4">
+            <a href="{{ route('services') }}" class="btn btn-primary px-4">
+                View More Services
+            </a>
+        </div>
         </div>
     </section>
 @endsection

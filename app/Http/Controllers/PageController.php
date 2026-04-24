@@ -15,7 +15,10 @@ class PageController extends Controller
     public function home()
     {
         $banner = Banner::active()->first();
-        return view('home', compact('banner'));
+        $services = Service::latest()->take(4)->get();
+        // dd($services);
+        // dd($banner);
+        return view('home', compact('banner', 'services'));
     }
 
     public function about()
@@ -57,7 +60,7 @@ class PageController extends Controller
 
     public function services()
     {
-        $services = Service::all();
+        $services = Service::latest()->get();
         return view('services', compact('services'));
     }
 

@@ -10,11 +10,16 @@ class Service extends Model
         'title',
         'description',
         'image',
+        'featured',
         'slug',
         'meta_title',
         'meta_description',
         'meta_keywords',
     ];
+    public function scopeFeatured($query)
+    {
+        return $query->where('featured', true);
+    }
 
 
 }

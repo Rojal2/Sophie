@@ -69,6 +69,11 @@
                             <input type="text" class="form-control" id="meta_keywords" name="meta_keywords"
                                 value="{{ old('meta_keywords', $service->meta_keywords) }}">
                         </div>
+                        <div class="mb-3">
+                            <label for="featured" class="form-label fw-bold">Featured</label>
+                            <input type="checkbox" class="form-check-input" id="featured" name="featured"
+                                value="1" {{ old('featured', $service->featured) ? 'checked' : '' }}>
+                        </div>
                     </div>
                 </div>
 
