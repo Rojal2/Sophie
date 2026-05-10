@@ -22,6 +22,6 @@ class InquiryController extends Controller
     public function destroy(Inquiry $inquiry)
     {
         $inquiry->delete();
-        return redirect()->route('inquiries.index')->with('success', 'Inquiry deleted successfully.');
+        return redirect()->route('admin.inquiries.index')->with('success', 'Inquiry deleted successfully.');
     }
 }

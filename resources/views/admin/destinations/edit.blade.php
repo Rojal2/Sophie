@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="mb-4">
-        <a href="{{ route('destinations.index') }}" class="text-decoration-none">
+        <a href="{{ route('admin.destinations.index') }}" class="text-decoration-none">
             <i class="fas fa-arrow-left me-1"></i> Back to list
         </a>
         <h2 class="fw-bold mt-2">Edit Destination</h2>
@@ -10,7 +10,7 @@
 
     <div class="card border-0 shadow-sm">
         <div class="card-body p-4">
-            <form action="{{ route('destinations.update', $destination) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.destinations.update', $destination) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 

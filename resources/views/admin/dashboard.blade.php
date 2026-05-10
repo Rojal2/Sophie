@@ -21,7 +21,7 @@
                             <small class="text-muted">Form submissions</small>
                         </div>
                     </div>
-                    <a href="{{ route('inquiries.index') }}" class="btn btn-primary btn-sm w-100">View All</a>
+                    <a href="{{ route('admin.inquiries.index') }}" class="btn btn-primary btn-sm w-100">View All</a>
                 </div>
             </div>
         </div>
@@ -38,7 +38,7 @@
                             <small class="text-muted">Manage classes</small>
                         </div>
                     </div>
-                    <a href="{{ route('courses.index') }}" class="btn btn-success btn-sm w-100">Manage Courses</a>
+                    <a href="{{ route('admin.courses.index') }}" class="btn btn-success btn-sm w-100">Manage Courses</a>
                 </div>
             </div>
         </div>

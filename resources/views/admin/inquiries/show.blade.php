@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="mb-4">
-        <a href="{{ route('inquiries.index') }}" class="text-decoration-none">
+        <a href="{{ route('admin.inquiries.index') }}" class="text-decoration-none">
             <i class="fas fa-arrow-left me-1"></i> Back to list
         </a>
         <h2 class="fw-bold mt-2">Consultation Details</h2>
@@ -49,7 +49,7 @@
                 </div>
             </div>
 
-            <form action="{{ route('inquiries.destroy', $inquiry) }}" method="POST"
+            <form action="{{ route('admin.inquiries.destroy', $inquiry) }}" method="POST"
                 onsubmit="return confirm('Delete this inquiry?')">
                 @csrf
                 @method('DELETE')

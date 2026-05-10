@@ -3,7 +3,7 @@
 @section('content')
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="fw-bold">Manage Team</h2>
-        <a href="{{ route('teams.create') }}" class="btn btn-primary">
+        <a href="{{ route('admin.teams.create') }}" class="btn btn-primary">
             <i class="fas fa-plus me-2"></i> Add Team Member
         </a>
     </div>
@@ -40,10 +40,10 @@
                                 <td>{{ $member->role }}</td>
                                 <td>
                                     <div class="d-flex gap-2">
-                                        <a href="{{ route('teams.edit', $member) }}" class="btn btn-sm btn-outline-primary">
+                                        <a href="{{ route('admin.teams.edit', $member) }}" class="btn btn-sm btn-outline-primary">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <form action="{{ route('teams.destroy', $member) }}" method="POST"
+                                        <form action="{{ route('admin.teams.destroy', $member) }}" method="POST"
                                             onsubmit="return confirm('Are you sure?')">
                                             @csrf
                                             @method('DELETE')

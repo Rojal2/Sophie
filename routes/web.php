@@ -1,46 +1,98 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
+// Public Controllers
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\InquiryController;
+use App\Http\Controllers\ProfileController;
+
+// Admin Controllers
+use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\DestinationController;
+use App\Http\Controllers\Admin\TeamController;
+use App\Http\Controllers\Admin\InquiryController as AdminInquiryController;
+use App\Http\Controllers\Admin\SettingController;
+
+/*
+|--------------------------------------------------------------------------
+| Public Routes
+|--------------------------------------------------------------------------
+*/
 
 Route::controller(PageController::class)->group(function () {
     Route::get('/', 'home')->name('home');
-    Route::get('/home', 'home');
     Route::get('/about', 'about')->name('about');
     Route::get('/services', 'services')->name('services');
     Route::get('/test-prep', 'courses')->name('test-prep');
     Route::get('/destinations', 'destinations')->name('destinations');
     Route::get('/contact', 'contact')->name('contact');
     Route::get('/consultation', 'consultation')->name('consultation');
-    Route::post('/consultation', 'storeInquiry')->name('consultation.store');
 });
 
-// Admin Routes
-Route::middleware(['auth', 'verified'])->prefix('admin')->group(function () {
-    Route::get('/', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
+/*
+|--------------------------------------------------------------------------
+| Inquiry (Form Submission)
+|--------------------------------------------------------------------------
+*/
 
-    Route::get('/settings', [\App\Http\Controllers\Admin\SettingController::class, 'index'])->name('admin.settings');
-    Route::post('/settings', [\App\Http\Controllers\Admin\SettingController::class, 'update'])->name('admin.settings.update');
+Route::post('/consultation', [InquiryController::class, 'store'])
+    ->name('consultation.store');
 
-    Route::resource('banners', \App\Http\Controllers\Admin\BannerController::class);
-    Route::resource('courses', \App\Http\Controllers\Admin\CourseController::class);
-    Route::resource('services', \App\Http\Controllers\Admin\ServiceController::class);
-    Route::resource('destinations', \App\Http\Controllers\Admin\DestinationController::class);
-    Route::resource('teams', \App\Http\Controllers\Admin\TeamController::class);
-    Route::resource('inquiries', \App\Http\Controllers\Admin\InquiryController::class)->only(['index', 'show', 'destroy']);
-});
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware(['auth', 'verified'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+
+        Route::view('/', 'admin.dashboard')->name('dashboard');
+
+        Route::get('/settings', [SettingController::class, 'index'])->name('settings');
+        Route::post('/settings', [SettingController::class, 'update'])->name('settings.update');
+
+        Route::resource('banners', BannerController::class);
+        Route::resource('courses', CourseController::class);
+        Route::resource('services', ServiceController::class);
+        Route::resource('destinations', DestinationController::class);
+        Route::resource('teams', TeamController::class);
+
+        Route::resource('inquiries', AdminInquiryController::class)
+            ->only(['index', 'show', 'destroy']);
+    });
+
+/*
+|--------------------------------------------------------------------------
+| Dashboard Redirect
+|--------------------------------------------------------------------------
+*/
 
 Route::get('/dashboard', function () {
     return redirect()->route('admin.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+/*
+|--------------------------------------------------------------------------
+| Profile Routes
+|--------------------------------------------------------------------------
+*/
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+/*
+|--------------------------------------------------------------------------
+| Auth Routes
+|--------------------------------------------------------------------------
+*/
 
 require __DIR__ . '/auth.php';

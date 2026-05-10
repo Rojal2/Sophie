@@ -3,7 +3,7 @@
 @section('content')
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="fw-bold">Manage Banners</h2>
-        <a href="{{ route('banners.create') }}" class="btn btn-primary">
+        <a href="{{ route('admin.banners.create') }}" class="btn btn-primary">
             <i class="fas fa-plus me-2"></i> Add New Banner
         </a>
     </div>
@@ -40,10 +40,10 @@
                                 </td>
                                 <td>
                                     <div class="d-flex gap-2">
-                                        <a href="{{ route('banners.edit', $banner) }}" class="btn btn-sm btn-outline-primary">
+                                        <a href="{{ route('admin.banners.edit', $banner) }}" class="btn btn-sm btn-outline-primary">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <form action="{{ route('banners.destroy', $banner) }}" method="POST"
+                                        <form action="{{ route('admin.banners.destroy', $banner) }}" method="POST"
                                             onsubmit="return confirm('Are you sure?')">
                                             @csrf
                                             @method('DELETE')
