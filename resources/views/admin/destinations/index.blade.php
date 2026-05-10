@@ -3,7 +3,7 @@
 @section('content')
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="fw-bold">Manage Destinations</h2>
-        <a href="{{ route('destinations.create') }}" class="btn btn-primary">
+        <a href="{{ route('admin.destinations.create') }}" class="btn btn-primary">
             <i class="fas fa-plus me-2"></i> Add New Destination
         </a>
     </div>
@@ -38,11 +38,11 @@
                                 </td>
                                 <td>
                                     <div class="d-flex gap-2">
-                                        <a href="{{ route('destinations.edit', $destination) }}"
+                                        <a href="{{ route('admin.destinations.edit', $destination) }}"
                                             class="btn btn-sm btn-outline-primary">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <form action="{{ route('destinations.destroy', $destination) }}" method="POST"
+                                        <form action="{{ route('admin.destinations.destroy', $destination) }}" method="POST"
                                             onsubmit="return confirm('Are you sure?')">
                                             @csrf
                                             @method('DELETE')

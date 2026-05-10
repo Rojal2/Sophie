@@ -45,26 +45,26 @@
                         class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
                         <i class="fas fa-home me-2"></i> Dashboard
                     </a>
-                    <a href="{{ route('banners.index') }}"
+                    <a href="{{ route('admin.banners.index') }}"
                         class="{{ request()->is('admin/banners*') ? 'active' : '' }}">
                         <i class="fas fa-image me-2"></i> Banners
                     </a>
-                    <a href="{{ route('courses.index') }}"
+                    <a href="{{ route('admin.courses.index') }}"
                         class="{{ request()->is('admin/courses*') ? 'active' : '' }}">
                         <i class="fas fa-book me-2"></i> Courses
                     </a>
-                    <a href="{{ route('services.index') }}"
+                    <a href="{{ route('admin.services.index') }}"
                         class="{{ request()->is('admin/services*') ? 'active' : '' }}">
                         <i class="fas fa-concierge-bell me-2"></i> Services
                     </a>
-                    <a href="{{ route('destinations.index') }}"
+                    <a href="{{ route('admin.destinations.index') }}"
                         class="{{ request()->is('admin/destinations*') ? 'active' : '' }}">
                         <i class="fas fa-map-marker-alt me-2"></i> Destinations
                     </a>
-                    <a href="{{ route('teams.index') }}" class="{{ request()->is('admin/teams*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.teams.index') }}" class="{{ request()->is('admin/teams*') ? 'active' : '' }}">
                         <i class="fas fa-users me-2"></i> Our Team
                     </a>
-                    <a href="{{ route('inquiries.index') }}"
+                    <a href="{{ route('admin.inquiries.index') }}"
                         class="{{ request()->is('admin/inquiries*') ? 'active' : '' }}">
                         <i class="fas fa-calendar-check me-2"></i> Consultations
                     </a>

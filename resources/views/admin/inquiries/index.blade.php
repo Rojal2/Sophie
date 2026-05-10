@@ -29,11 +29,11 @@
                                 <td>{{ $inquiry->subject ?? 'General Inquiry' }}</td>
                                 <td>
                                     <div class="d-flex gap-2">
-                                        <a href="{{ route('inquiries.show', $inquiry) }}"
+                                        <a href="{{ route('admin.inquiries.show', $inquiry) }}"
                                             class="btn btn-sm btn-outline-primary">
                                             <i class="fas fa-eye"></i> View
                                         </a>
-                                        <form action="{{ route('inquiries.destroy', $inquiry) }}" method="POST"
+                                        <form action="{{ route('admin.inquiries.destroy', $inquiry) }}" method="POST"
                                             onsubmit="return confirm('Are you sure?')">
                                             @csrf
                                             @method('DELETE')

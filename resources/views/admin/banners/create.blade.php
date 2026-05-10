@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="mb-4">
-    <a href="{{ route('banners.index') }}" class="text-decoration-none">
+    <a href="{{ route('admin.banners.index') }}" class="text-decoration-none">
         <i class="fas fa-arrow-left me-1"></i> Back to list
     </a>
     <h2 class="fw-bold mt-2">Add New Banner</h2>
@@ -10,7 +10,7 @@
 
 <div class="card border-0 shadow-sm">
     <div class="card-body p-4">
-        <form action="{{ route('banners.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.banners.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             
             <div class="row">
