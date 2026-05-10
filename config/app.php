@@ -121,6 +121,12 @@ return [
     'maintenance' => [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
+    
+    'social_links' => [
+        'facebook' => env('FACEBOOK_URL'),
+        'instagram' => env('INSTAGRAM_URL'),
+        'tiktok' => env('TIKTOK_URL'),
+    ],
     ],
 
 ];

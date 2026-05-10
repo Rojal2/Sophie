@@ -12,21 +12,22 @@
                         <div class="me-3 text-primary"><i class="fas fa-map-marker-alt fa-2x"></i></div>
                         <div>
                             <h5 class="fw-bold">Registered Office</h5>
-                            <p class="text-muted">Maharajgunj, Ward No. 3<br>Kathmandu Metropolitan City, Nepal</p>
+                            <p class="text-muted">
+                                {!! nl2br(e($settings['site_address'] ?? 'Maharajgunj, Ward No. 3, Kathmandu')) !!}</p>
                         </div>
                     </div>
                     <div class="d-flex mb-4">
                         <div class="me-3 text-primary"><i class="fas fa-phone fa-2x"></i></div>
                         <div>
                             <h5 class="fw-bold">Phone</h5>
-                            <p class="text-muted">+977-9843719770 (Office)</p>
+                            <p class="text-muted">{{ $settings['site_phone'] ?? '+977-9843719770' }}</p>
                         </div>
                     </div>
                     <div class="d-flex mb-4">
                         <div class="me-3 text-primary"><i class="fas fa-envelope fa-2x"></i></div>
                         <div>
                             <h5 class="fw-bold">Email</h5>
-                            <p class="text-muted">info@sophie.com.np</p>
+                            <p class="text-muted">{{ $settings['site_email'] ?? 'info@sophie.com.np' }}</p>
                         </div>
                     </div>
 

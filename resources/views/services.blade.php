@@ -11,12 +11,19 @@
                 @foreach ($services as $service)
                     <div class="col-md-4">
                         <div class="card h-100 border-0 shadow-sm p-4">
-                            <div class="text-primary mb-3"><i class="{{ $service['icon'] }} fa-2x"></i></div>
+                            <div class="text-primary mb-3">
+                                @if(preg_match('/^fa[srl]? /', $service->image))
+                                    <i class="{{ $service->image }} fa-2x"></i>
+                                @else
+                                    <img src="{{ asset('storage/' . $service->image) }}" alt="{{ $service->title }}"
+                                        style="width: 50px;">
+                                @endif
+                            </div>
                             <h3>
-                                {{ $service['title'] }}
+                                {{ $service->title }}
                             </h3>
                             <p class="text-muted">
-                                {{ $service['desc'] }}
+                                {{ $service->description }}
                             </p>
                         </div>
                     </div>
