@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row text-center g-4 quick-facts-row">
                 <div class="col-md-4">
-                    <div class="d-flex align-items-center justify-content-center gap-3 fact-item">
+                    <div class="d-flex align-items-center justify-content-center gap-3 fact-item reveal-on-scroll reveal-delay-1">
                         <span class="fact-icon-wrap">
                             <i class="fas fa-map-marker-alt text-danger"></i>
                         </span>
@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="d-flex align-items-center justify-content-center gap-3 fact-item">
+                    <div class="d-flex align-items-center justify-content-center gap-3 fact-item reveal-on-scroll reveal-delay-2">
                         <span class="fact-icon-wrap">
                             <i class="fas fa-globe-asia text-primary"></i>
                         </span>
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="d-flex align-items-center justify-content-center gap-3 fact-item">
+                    <div class="d-flex align-items-center justify-content-center gap-3 fact-item reveal-on-scroll reveal-delay-3">
                         <span class="fact-icon-wrap">
                             <i class="fas fa-check-circle text-success"></i>
                         </span>
@@ -47,14 +47,22 @@
     <!-- Why Choose Us / Features -->
     <section class="py-5 bg-light">
         <div class="container">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5 reveal-on-scroll">
                 <h2 class="fw-bold text-dark">Why Sophie International?</h2>
-                <div class="bg-primary mx-auto" style="width: 60px; height: 3px;"></div>
+                <div class="bg-primary mx-auto mt-3" style="width: 60px; height: 3px;"></div>
             </div>
             <div class="row g-4">
                 @foreach ($services as $service)
+                    @php
+                        $delayClass = match ($loop->index % 4) {
+                            0 => 'reveal-delay-1',
+                            1 => 'reveal-delay-2',
+                            2 => 'reveal-delay-3',
+                            default => 'reveal-delay-4',
+                        };
+                    @endphp
                     <div class="col-md-3 col-sm-6">
-                        <div class="feature-card text-center">
+                        <div class="feature-card text-center reveal-on-scroll {{ $delayClass }}">
                             <div class="icon-box"><i class="fas fa-user-graduate"></i></div>
                             <h5 class="fw-bold">{{$service->title}}</h5>
                             <p class="text-muted small">{{$service->description}}</p>
@@ -64,7 +72,7 @@
 
 
             </div>
-            <div class="text-center mt-4">
+            <div class="text-center mt-4 reveal-on-scroll reveal-delay-3">
             <a href="{{ route('services') }}" class="btn btn-primary px-4">
                 View More Services
             </a>

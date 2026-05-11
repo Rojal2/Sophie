@@ -242,6 +242,24 @@ section {
     line-height: 1.15;
 }
 
+.hero-animate-item {
+    opacity: 0;
+    transform: translateY(18px);
+    animation: heroReveal 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-animate-title {
+    animation-delay: 0.08s;
+}
+
+.hero-animate-subtitle {
+    animation-delay: 0.22s;
+}
+
+.hero-animate-actions {
+    animation-delay: 0.36s;
+}
+
 .hero-subtitle {
     font-size: clamp(1rem, 2.6vw, 1.2rem);
     margin-bottom: var(--space-6);
@@ -316,6 +334,75 @@ section {
     line-height: 1;
 }
 
+@keyframes heroReveal {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes factReveal {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-delay-1 {
+    transition-delay: 0.08s;
+}
+
+.reveal-delay-2 {
+    transition-delay: 0.18s;
+}
+
+.reveal-delay-3 {
+    transition-delay: 0.28s;
+}
+
+.reveal-delay-4 {
+    transition-delay: 0.36s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-animate-item,
+    .fact-item,
+    .reveal-on-scroll {
+        animation: none;
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .hero-btn-primary:hover,
+    .hero-btn-ghost:hover,
+    .btn-primary-custom:hover {
+        transform: none;
+    }
+}
+
 /* ================= CARDS ================= */
 
 .feature-card {
@@ -366,6 +453,133 @@ section {
 
 .footer a:hover {
     color: var(--primary-color);
+}
+
+/* ================= CONSULTATION FORM ================= */
+
+.consultation-section .container {
+    max-width: 980px;
+}
+
+.consultation-card {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 18px 42px rgba(9, 25, 48, 0.12) !important;
+}
+
+.consultation-card-header {
+    background: linear-gradient(135deg, #0d47a1, #1d63cb) !important;
+}
+
+.consultation-form .form-label {
+    font-weight: 600;
+    color: #12315f;
+    margin-bottom: 0.45rem;
+}
+
+.consultation-form .form-control,
+.consultation-form .form-select {
+    border-radius: 0.75rem;
+    border: 1px solid #d5e0f2;
+    min-height: 48px;
+    padding: 0.72rem 0.95rem;
+    background-color: #fbfdff;
+    transition: border-color 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
+}
+
+.consultation-form textarea.form-control {
+    min-height: 128px;
+    resize: vertical;
+}
+
+.consultation-form .form-control::placeholder,
+.consultation-form .form-select {
+    color: #6e7f9b;
+}
+
+.consultation-form .form-control:focus,
+.consultation-form .form-select:focus {
+    border-color: rgba(13, 71, 161, 0.55);
+    box-shadow: 0 0 0 0.25rem rgba(13, 71, 161, 0.14);
+    background-color: #fff;
+}
+
+.consultation-form .is-invalid.form-control,
+.consultation-form .is-invalid.form-select {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.12);
+}
+
+.consultation-form .invalid-feedback {
+    display: block;
+    font-size: 0.84rem;
+    margin-top: 0.35rem;
+}
+
+.consultation-form small {
+    color: #6b7a95 !important;
+}
+
+.consultation-form .btn.is-loading {
+    opacity: 0.94;
+    cursor: wait;
+}
+
+/* ================= INNER PAGE POLISH ================= */
+
+.page-premium-section {
+    background-image: radial-gradient(circle at 20% 10%, rgba(13, 71, 161, 0.04), transparent 28%);
+}
+
+.premium-kicker {
+    letter-spacing: 0.08em;
+}
+
+.premium-page-title {
+    letter-spacing: 0.01em;
+}
+
+.premium-card {
+    border-radius: 0.95rem;
+    box-shadow: 0 10px 28px rgba(9, 25, 48, 0.08) !important;
+    transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.premium-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 36px rgba(9, 25, 48, 0.12) !important;
+}
+
+.premium-icon-wrap {
+    width: 56px;
+    height: 56px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #eef5ff, #eaf8ff);
+    border: 1px solid rgba(13, 71, 161, 0.1);
+}
+
+.premium-outline-btn {
+    border-radius: 0.6rem;
+    border-color: rgba(13, 71, 161, 0.55);
+    color: var(--primary-color);
+    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.premium-outline-btn:hover {
+    color: #fff;
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+.team-mini-card {
+    padding: 0.8rem;
+    border-radius: 0.8rem;
+    background-color: rgba(248, 251, 255, 0.9);
+    border: 1px solid rgba(13, 71, 161, 0.08);
 }
 
 /* ================= RESPONSIVE ================= */

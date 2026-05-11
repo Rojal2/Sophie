@@ -30,6 +30,31 @@
     @include('components.footer-component')
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        (() => {
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const revealElements = document.querySelectorAll('.reveal-on-scroll');
+
+            if (!revealElements.length) return;
+            if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+                revealElements.forEach((el) => el.classList.add('is-visible'));
+                return;
+            }
+
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('is-visible');
+                    obs.unobserve(entry.target);
+                });
+            }, {
+                threshold: 0.18,
+                rootMargin: '0px 0px -7% 0px'
+            });
+
+            revealElements.forEach((el) => observer.observe(el));
+        })();
+    </script>
 </body>
 
 </html>
