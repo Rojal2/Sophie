@@ -6,10 +6,12 @@
     <!-- Quick Facts -->
     <section class="py-5 bg-white border-bottom">
         <div class="container">
-            <div class="row text-center g-4">
+            <div class="row text-center g-4 quick-facts-row">
                 <div class="col-md-4">
-                    <div class="d-flex align-items-center justify-content-center gap-3">
-                        <i class="fas fa-map-marker-alt text-danger fs-3"></i>
+                    <div class="d-flex align-items-center justify-content-center gap-3 fact-item">
+                        <span class="fact-icon-wrap">
+                            <i class="fas fa-map-marker-alt text-danger"></i>
+                        </span>
                         <div class="text-start">
                             <h6 class="mb-0 fw-bold">Location</h6>
                             <small>Maharajgunj-3, Kathmandu</small>
@@ -17,8 +19,10 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="d-flex align-items-center justify-content-center gap-3">
-                        <i class="fas fa-globe-asia text-primary fs-3"></i>
+                    <div class="d-flex align-items-center justify-content-center gap-3 fact-item">
+                        <span class="fact-icon-wrap">
+                            <i class="fas fa-globe-asia text-primary"></i>
+                        </span>
                         <div class="text-start">
                             <h6 class="mb-0 fw-bold">Destinations</h6>
                             <small>Japan, Australia, USA, Europe</small>
@@ -26,8 +30,10 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="d-flex align-items-center justify-content-center gap-3">
-                        <i class="fas fa-check-circle text-success fs-3"></i>
+                    <div class="d-flex align-items-center justify-content-center gap-3 fact-item">
+                        <span class="fact-icon-wrap">
+                            <i class="fas fa-check-circle text-success"></i>
+                        </span>
                         <div class="text-start">
                             <h6 class="mb-0 fw-bold">Govt. Registered</h6>
                             <small>Reg No: 380602/82/83</small>
