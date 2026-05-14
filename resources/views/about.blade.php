@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="py-5 bg-white">
+    <section class="py-5 bg-white page-premium-section">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6">
+                <div class="col-lg-6 reveal-on-scroll reveal-delay-1">
                     <!-- Using an external image for now, consistent with legacy -->
                     <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
                         alt="About Us" class="img-fluid rounded shadow-lg mb-4 mb-lg-0">
                 </div>
-                <div class="col-lg-6 ps-lg-5">
-                    <h6 class="text-primary fw-bold text-uppercase">Who We Are</h6>
-                    <h2 class="fw-bold mb-4">Committed to Excellence in Education</h2>
+                <div class="col-lg-6 ps-lg-5 reveal-on-scroll reveal-delay-2">
+                    <h6 class="text-primary fw-bold text-uppercase premium-kicker">Who We Are</h6>
+                    <h2 class="fw-bold mb-4 premium-page-title">Committed to Excellence in Education</h2>
                     <p class="text-muted"><strong>Sophie International Education Pvt. Ltd.</strong> is a registered
                         educational consultancy (Reg No: 380602/82/83) established under the Companies Act, 2063.
                         Located in Maharajgunj-3, Kathmandu, we are dedicated to bridging the gap between Nepalese
@@ -23,7 +23,7 @@
                     <div class="row mt-4">
                         @foreach($teams as $team)
                             <div class="col-md-6 mb-3">
-                                <div class="d-flex align-items-start">
+                                <div class="d-flex align-items-start team-mini-card reveal-on-scroll reveal-delay-3">
                                     <img src="{{ asset('storage/' . $team->image) }}" alt="{{ $team->name }}"
                                         class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
                                     <div>

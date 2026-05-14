@@ -1,9 +1,9 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+<nav id="mainNavbar" class="navbar navbar-expand-lg navbar-light glass-navbar">
     <div class="container">
 
         <!-- Logo -->
         <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('home') }}">
-            <img src="{{ asset('images/logo.png') }}" alt="Sophie Logo" height="55">
+            <img src="{{ asset('images/logo.png') }}" alt="Sophie Logo" height="80">
             <div class="brand-text">
                 <div class="brand-title">SOPHIE</div>
                 <small class="brand-subtitle">International Education</small>
@@ -31,7 +31,7 @@
                 @endphp
 
                 @foreach($menu as $route => $label)
-                    <li class="nav-item">
+                    <li class="nav-item mx-lg-1">
                         <a class="nav-link {{ request()->routeIs($route) ? 'active' : '' }}"
                            href="{{ route($route) }}">
                             {{ $label }}
@@ -60,3 +60,17 @@
 
     </div>
 </nav>
+
+<script>
+    (() => {
+        const navbar = document.getElementById('mainNavbar');
+        if (!navbar) return;
+        const updateNavbarState = () => {
+            navbar.classList.toggle('is-scrolled', window.scrollY > 8);
+        };
+        updateNavbarState();
+        window.addEventListener('scroll', updateNavbarState, {
+            passive: true
+        });
+    })();
+</script>

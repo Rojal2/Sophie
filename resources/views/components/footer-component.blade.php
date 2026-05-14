@@ -22,6 +22,12 @@
                     <a href="{{ config('social.tiktok') }}" target="_blank" class="text-white-50">
                         <i class="fab fa-tiktok"></i>
                     </a>
+                    <a href="https://wa.me/9768593973?text=Hello%20Sophie%20International"
+       target="_blank"
+       class="text-white-50">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+                    
                 </div>
             </div>
 

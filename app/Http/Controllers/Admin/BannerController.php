@@ -35,7 +35,7 @@ class BannerController extends Controller
 
         Banner::create($data);
 
-        return redirect()->route('banners.index')->with('success', 'Banner created successfully.');
+        return redirect()->route('admin.banners.index')->with('success', 'Banner created successfully.');
     }
 
     public function edit(Banner $banner)
@@ -53,7 +53,7 @@ class BannerController extends Controller
 
         $banner->update($data);
 
-        return redirect()->route('banners.index')->with('success', 'Banner updated successfully.');
+        return redirect()->route('admin.banners.index')->with('success', 'Banner updated successfully.');
     }
 
     public function destroy(Banner $banner)
@@ -61,6 +61,6 @@ class BannerController extends Controller
         $this->fileService->delete($banner->image);
         $banner->delete();
 
-        return redirect()->route('banners.index')->with('success', 'Banner deleted successfully.');
+        return redirect()->route('admin.banners.index')->with('success', 'Banner deleted successfully.');
     }
 }

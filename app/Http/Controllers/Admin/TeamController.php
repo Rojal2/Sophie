@@ -35,7 +35,7 @@ class TeamController extends Controller
 
         Team::create($data);
 
-        return redirect()->route('teams.index')->with('success', 'Team member added successfully.');
+        return redirect()->route('admin.teams.index')->with('success', 'Team member added successfully.');
     }
 
     public function edit(Team $team)
@@ -53,7 +53,7 @@ class TeamController extends Controller
 
         $team->update($data);
 
-        return redirect()->route('teams.index')->with('success', 'Team member updated successfully.');
+        return redirect()->route('admin.teams.index')->with('success', 'Team member updated successfully.');
     }
 
     public function destroy(Team $team)
@@ -61,6 +61,6 @@ class TeamController extends Controller
         $this->fileService->delete($team->image);
         $team->delete();
 
-        return redirect()->route('teams.index')->with('success', 'Team member removed successfully.');
+        return redirect()->route('admin.teams.index')->with('success', 'Team member removed successfully.');
     }
 }

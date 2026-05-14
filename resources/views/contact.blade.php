@@ -44,7 +44,7 @@
                     <div class="card shadow border-0 overflow-hidden h-100">
                         <!-- Google Map Embed -->
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3531.066467364804!2d85.3347983150638!3d27.74614498277573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb193edf6bd2af%3A0x44ac26fce7c33d8c!2sMaharajgunj%2C%20Kathmandu%2044600!5e0!3m2!1sen!2snp!4v1625567890123!5m2!1sen!2snp"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3531.066467364804!2d85.3354113!3d27.740403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb190018544ef7%3A0x7ce968161fbe9a6c!2sSophie%20International%20Education%20Pvt%20Ltd!5e0!3m2!1sen!2snp!4v1715655500000!5m2!1sen!2snp"
                             width="100%" height="100%" style="border:0; min-height: 400px;" allowfullscreen=""
                             loading="lazy">
                         </iframe>

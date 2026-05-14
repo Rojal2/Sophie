@@ -37,7 +37,7 @@ class DestinationController extends Controller
 
         Destination::create($data);
 
-        return redirect()->route('destinations.index')->with('success', 'Destination created successfully.');
+        return redirect()->route('admin.destinations.index')->with('success', 'Destination created successfully.');
     }
 
     public function edit(Destination $destination)
@@ -56,7 +56,7 @@ class DestinationController extends Controller
 
         $destination->update($data);
 
-        return redirect()->route('destinations.index')->with('success', 'Destination updated successfully.');
+        return redirect()->route('admin.destinations.index')->with('success', 'Destination updated successfully.');
     }
 
     public function destroy(Destination $destination)
@@ -64,6 +64,6 @@ class DestinationController extends Controller
         $this->fileService->delete($destination->image);
         $destination->delete();
 
-        return redirect()->route('destinations.index')->with('success', 'Destination deleted successfully.');
+        return redirect()->route('admin.destinations.index')->with('success', 'Destination deleted successfully.');
     }
 }

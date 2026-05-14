@@ -37,7 +37,7 @@ class ServiceController extends Controller
 
         Service::create($data);
 
-        return redirect()->route('services.index')->with('success', 'Service created successfully.');
+        return redirect()->route('admin.services.index')->with('success', 'Service created successfully.');
     }
 
     public function edit(Service $service)
@@ -56,7 +56,7 @@ class ServiceController extends Controller
 
         $service->update($data);
 
-        return redirect()->route('services.index')->with('success', 'Service updated successfully.');
+        return redirect()->route('admin.services.index')->with('success', 'Service updated successfully.');
     }
 
     public function destroy(Service $service)
@@ -64,6 +64,6 @@ class ServiceController extends Controller
         $this->fileService->delete($service->image);
         $service->delete();
 
-        return redirect()->route('services.index')->with('success', 'Service deleted successfully.');
+        return redirect()->route('admin.services.index')->with('success', 'Service deleted successfully.');
     }
 }
