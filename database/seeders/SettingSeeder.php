@@ -12,7 +12,7 @@ class SettingSeeder extends Seeder
         $settings = [
             [
                 'key' => 'site_name',
-                'value' => 'My Website',
+                'value' => 'Sophie International Education',
             ],
             [
                 'key' => 'site_logo',
@@ -24,7 +24,7 @@ class SettingSeeder extends Seeder
             ],
             [
                 'key' => 'site_email',
-                'value' => 'info@mywebsite.com',
+                'value' => 'info@sophie.com.np',
             ],
             [
                 'key' => 'site_phone',

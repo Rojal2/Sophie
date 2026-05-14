@@ -47,7 +47,7 @@
                                         <div class="p-2 border rounded text-center h-100">
                                             @if($lang->image)
                                                 <img src="{{ asset('storage/' . $lang->image) }}" alt="{{ $lang->title }}"
-                                                    class="mb-2" style="width: 40px;">
+                                                    class="mb-2" style="width: 40px;" loading="lazy">
                                             @else
                                                 <i class="fas fa-language fa-2x text-secondary"></i>
                                             @endif
