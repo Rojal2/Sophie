@@ -63,7 +63,13 @@
                     @endphp
                     <div class="col-md-3 col-sm-6">
                         <div class="feature-card text-center reveal-on-scroll {{ $delayClass }}">
-                            <div class="icon-box"><i class="fas fa-user-graduate"></i></div>
+                            <div class="icon-box">
+                                @if(preg_match('/^fa[srl]? /', $service->image))
+                                    <i class="{{ $service->image }}"></i>
+                                @else
+                                    <img src="{{ asset('storage/' . $service->image) }}" alt="{{ $service->title }}">
+                                @endif
+                            </div>
                             <h5 class="fw-bold">{{$service->title}}</h5>
                             <p class="text-muted small">{{$service->description}}</p>
                         </div>
