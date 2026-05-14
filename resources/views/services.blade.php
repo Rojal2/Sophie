@@ -16,7 +16,7 @@
                                 @if(preg_match('/^fa[srl]? /', $service->image))
                                     <i class="{{ $service->image }} fa-2x"></i>
                                 @else
-                                    <img src="{{ asset('storage/' . $service->image) }}" alt="{{ $service->title }}">
+                                    <img src="{{ asset('storage/' . $service->image) }}" alt="{{ $service->title }}" loading="lazy">
                                 @endif
                             </div>
                             <h3>

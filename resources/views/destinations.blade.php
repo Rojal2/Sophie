@@ -15,10 +15,10 @@
                             <div class="card-body text-center">
                                 @if(Str::startsWith($dest->image, 'flag'))
                                     <img src="https://flagcdn.com/w80/{{ $dest->image }}.png" alt="{{ $dest->name }}" class="mb-3"
-                                        style="width: 50px;">
+                                        style="width: 50px;" loading="lazy">
                                 @else
                                     <img src="{{ asset('storage/' . $dest->image) }}" alt="{{ $dest->name }}" class="mb-3"
-                                        style="height: 150px; width: 100%; object-fit: cover; border-radius: 5px;">
+                                        style="height: 150px; width: 100%; object-fit: cover; border-radius: 5px;" loading="lazy">
                                 @endif
                                 <h4>
                                     {{ $dest->name }}
