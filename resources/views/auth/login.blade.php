@@ -1,51 +1,75 @@
-<x-guest-layout>
-    <div class="mb-5 text-center">
-        <h1 class="text-2xl font-semibold text-slate-800 tracking-tight">Welcome Back</h1>
-        <p class="mt-2 text-sm text-slate-500">Log in to continue your application journey.</p>
+@extends('layouts.app')
+
+@section('content')
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card border-0 shadow-sm p-4 rounded-4">
+                    <div class="text-center mb-4">
+                        <img src="{{ asset('images/logo.png') }}" alt="Sophie Logo" height="80" class="mb-3">
+                        <h2 class="fw-bold">Welcome Back</h2>
+                        <p class="text-muted small">Log in to manage your portal</p>
+                    </div>
+
+                    <!-- Session Status -->
+                    @if (session('status'))
+                        <div class="alert alert-success mb-4" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
+
+                        <!-- Email Address -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-semibold">Email Address</label>
+                            <input id="email" type="email" name="email" value="{{ old('email') }}" 
+                                class="form-control @error('email') is-invalid @enderror" 
+                                required autofocus autocomplete="username">
+                            @error('email')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <label for="password" class="form-label fw-semibold">Password</label>
+                                @if (Route::has('password.request'))
+                                    <a class="small text-decoration-none" href="{{ route('password.request') }}">
+                                        Forgot password?
+                                    </a>
+                                @endif
+                            </div>
+                            <input id="password" type="password" name="password" 
+                                class="form-control @error('password') is-invalid @enderror" 
+                                required autocomplete="current-password">
+                            @error('password')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <!-- Remember Me -->
+                        <div class="mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="remember" id="remember_me">
+                                <label class="form-check-label small text-muted" for="remember_me">
+                                    Remember me
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg rounded-3 py-2 fw-bold" style="background: linear-gradient(135deg, #0d47a1, #1958bc);">
+                                Log in
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
-
-    <form method="POST" action="{{ route('login') }}" class="space-y-4">
-        @csrf
-
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full rounded-xl border-slate-300 bg-slate-50/40 focus:border-blue-500 focus:ring-blue-500" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div>
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full rounded-xl border-slate-300 bg-slate-50/40 focus:border-blue-500 focus:ring-blue-500"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-between pt-2">
-            @if (Route::has('password.request'))
-                <a class="text-sm text-slate-600 hover:text-blue-700 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3 rounded-xl px-5 py-2.5 !text-sm !normal-case tracking-normal bg-blue-700 hover:bg-blue-800 focus:bg-blue-800 focus:ring-blue-500">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+</section>
+@endsection

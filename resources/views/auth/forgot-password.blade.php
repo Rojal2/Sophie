@@ -1,29 +1,52 @@
-<x-guest-layout>
-    <div class="mb-5 text-center">
-        <h1 class="text-2xl font-semibold text-slate-800 tracking-tight">Reset Password</h1>
-        <p class="mt-2 text-sm text-slate-500">Enter your email and we will send you a secure reset link.</p>
-    </div>
-    <div class="mb-4 text-sm text-gray-600">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
-    </div>
+@extends('layouts.app')
 
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+@section('content')
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card border-0 shadow-sm p-4 rounded-4">
+                    <div class="text-center mb-4">
+                        <img src="{{ asset('images/logo.png') }}" alt="Sophie Logo" height="80" class="mb-3">
+                        <h2 class="fw-bold">Reset Password</h2>
+                        <p class="text-muted small">Enter your email for a secure reset link</p>
+                    </div>
 
-    <form method="POST" action="{{ route('password.email') }}" class="space-y-4">
-        @csrf
+                    <div class="mb-4 small text-muted">
+                        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+                    </div>
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full rounded-xl border-slate-300 bg-slate-50/40 focus:border-blue-500 focus:ring-blue-500" type="email" name="email" :value="old('email')" required autofocus />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                    <!-- Session Status -->
+                    @if (session('status'))
+                        <div class="alert alert-success mb-4" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    <form method="POST" action="{{ route('password.email') }}">
+                        @csrf
+
+                        <!-- Email Address -->
+                        <div class="mb-4">
+                            <label for="email" class="form-label fw-semibold">Email Address</label>
+                            <input id="email" type="email" name="email" value="{{ old('email') }}" 
+                                class="form-control @error('email') is-invalid @enderror" 
+                                required autofocus>
+                            @error('email')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg rounded-3 py-2 fw-bold" style="background: linear-gradient(135deg, #0d47a1, #1958bc);">
+                                Send Reset Link
+                            </button>
+                            <a href="{{ route('login') }}" class="btn btn-link text-decoration-none">Back to login</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <div class="flex items-center justify-end pt-2">
-            <x-primary-button class="rounded-xl px-5 py-2.5 !text-sm !normal-case tracking-normal bg-blue-700 hover:bg-blue-800 focus:bg-blue-800 focus:ring-blue-500">
-                {{ __('Email Password Reset Link') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </div>
+</section>
+@endsection
